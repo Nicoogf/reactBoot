@@ -1,5 +1,6 @@
 import React from 'react' ; 
 import PropTypes from 'prop-types' ; 
+import { Task } from '../../models/task.class';
 
 const TaskComponent = ({ task }) => {
   return (
@@ -9,7 +10,7 @@ const TaskComponent = ({ task }) => {
         </h2>
 
         <h3>
-            Descripcion : { task.descrition }
+            Descripcion : { task.description }
         </h3>
 
         <h4>
