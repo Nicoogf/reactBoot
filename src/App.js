@@ -38,13 +38,14 @@ function App() {
               </ Ejemplo4>
 
               <TaskListComponent />
+              <GreetingStyled name="Juan"></GreetingStyled>    
       * 
       * 
       * 
       */}
 
-      <GreetingStyled name="Juan"></GreetingStyled>    
-        
+      
+      <TaskListComponent></TaskListComponent>
     </div>
   );
 }
