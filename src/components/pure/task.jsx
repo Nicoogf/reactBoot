@@ -4,6 +4,7 @@ import { Task } from '../../models/task.class';
 
 // Estilos
 import '../../styles/task.scss' ;
+import { LEVELS } from '../../models/levels.enum';
 
 const TaskComponent = ({ task }) => {
 
@@ -16,8 +17,55 @@ const TaskComponent = ({ task }) => {
   );
 
 
+ /**
+  * Funcion para setear prioridad
+  */
+
+  function taskLevelBadge(){
+    switch ( task.level ) {
+      case LEVELS.NORMAL:
+        return(
+          <h6 className='mb-0'> 
+            <span className='badge bg-primary'> 
+              { task.level } 
+            </span> 
+          </h6>)
+      case LEVELS.URGENT:
+        return(
+          <h6 className='mb-0'> 
+            <span className='badge bg-warning'> 
+              { task.level } 
+            </span> 
+          </h6>) 
+      case LEVELS.BLOCKING:
+        return(
+          <h6 className='mb-0'> 
+            <span className='badge bg-danger'> 
+              { task.level } 
+            </span> 
+          </h6>)
+       default:
+        break;     
+    }
+  }
+  
+   /**
+  * Funcion para setear Estado
+  */
+
+  function taskIconCompleted(){
+      if(task.completed){
+        return (<i className='bi-toggle-on' style={{ color : 'green' , fontWeight: 'bold'}}/>)
+      }else{
+        return (<i className='bi-toggle-off'style={{ color : 'grey' , fontWeight: 'bold'}} />) 
+      }
+  }
+
+
+
   return (
     <tr className='fw-normal'>
+
       <th> 
         <span className='m-2'> { task.name }  </span> 
       </th>
@@ -27,17 +75,19 @@ const TaskComponent = ({ task }) => {
       </td>
 
       <td className='align-middle'>
-        {/* Sustituir por un badge*/}
-        <span> { task.level } </span>
+        {/* Ejecucion de la funcion para retornar elementos*/}
+        { taskLevelBadge() }
       </td>
 
       <td className='align-middle'>
-        {/* Sustituir por iconos*/}
-        <span> { task.completed } </span>
+        
+         { taskIconCompleted() }
+
+         <i className='bi-trash' style={{ color : 'tomato' , fontSize: '20px'}}/>
+
       </td>
-      
     </tr>
-  )
+  ) ;
 };
 
 TaskComponent.propTypes = {

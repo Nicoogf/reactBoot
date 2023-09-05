@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client' ;
 
 // Se añade Boostrap
 import 'bootstrap/dist/css/bootstrap.css' ;
+import "bootstrap-icons/font/bootstrap-icons.css" ;
 
 // Estilos propios
 import './index.css';

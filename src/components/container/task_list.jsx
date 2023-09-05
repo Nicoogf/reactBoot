@@ -6,14 +6,16 @@ import TaskComponent from '../pure/task';
 // Estilos
 import "../../styles/task.scss";
 
+
 const TaskListComponent = () => {
 
-  const defaultTask = new Task( "Ejemplo" , "Descripcion por defecto" , true , LEVELS.NORMAL );
-
+  const defaultTask1 = new Task( "Ejemplo1" , "Desc Uno" , true , LEVELS.NORMAL );
+  const defaultTask2 = new Task( "Ejemplo2" , "Desc Dos" , false  , LEVELS.URGENT );
+  const defaultTask3 = new Task( "Ejemplo3" , "Desc Tres" , false  , LEVELS.BLOCKING );
 
   // Estado del Componente
 
-  const [ task , setTask ] = useState( [defaultTask] ) ;
+  const [ task , setTask ] = useState([ defaultTask1 , defaultTask2 ,  defaultTask3 ]) ;
   const [ loading , setLoading ] = useState( true ) ;
 
 
@@ -65,8 +67,19 @@ return (
                   </tr>
                  </thead> 
                  <tbody>
-                    {/* Iterar sobre una lista de tareas */}
-                    <TaskComponent task={defaultTask} /> 
+
+                  { task.map( ( task , index )=>{
+                    return(
+                      <TaskComponent 
+                          key={index} 
+                          task={task} >
+                            
+                      </TaskComponent>
+                    )
+                  })}
+
+
+                  
                  </tbody>
               </table>
                   
