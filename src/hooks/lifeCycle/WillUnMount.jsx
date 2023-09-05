@@ -34,14 +34,12 @@ export const WillUnMountHook = () => {
     }, []
      //En esta parte queda el array vacio para decir que se ejecute solo una vez
 );
-
-
-    
-  return (
-    <div>
-        <h1>
-          WillUnmount
-        </h1>
-    </div>
-  )
-}
+   
+      return (
+        <div>
+            <h1>
+              WillUnmount
+            </h1>
+        </div>
+      )
+    }

@@ -3,7 +3,7 @@
  * y Uso de hook en componente Funcional
 */
 
-import React, { Component  , useEffect } from 'react'
+import React , { Component  , useEffect } from 'react'
 
 export class DidUpdate extends Component {
 
@@ -23,8 +23,9 @@ export class DidUpdate extends Component {
 
 export const DidUpdateHook = () =>{
 
-    // Al no indicar un segundo parametro en el useEfect entre [ ] ,  para que se ejecute cada verz que haya
+    //  Al no indicar un segundo parametro en el useEfect entre [ ] ,  para que se ejecute cada verz que haya
     //  un cambio en el estado o props
+    // Al no pasar como segundo parametro los corchetes se indica que se va a ejcutar despues de cada cambio
 
     useEffect( ()=> {
         console.log( "Comportamiento cuando el componente recibe nuevos props o cambio en su estado privado" )
@@ -35,5 +36,5 @@ export const DidUpdateHook = () =>{
         <div>
           <h1> DidMount </h1>
         </div>
-    )
+    ) ;
 }
