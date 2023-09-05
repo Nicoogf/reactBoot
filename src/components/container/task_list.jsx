@@ -10,15 +10,26 @@ const TaskListComponent = () => {
 
 
   // Estado del Componente
+
   const [ task , setTask ] = useState( [defaultTask] ) ;
+  const [ loading , setLoading ] = useState( true ) ;
+
+
 
   // Control del ciclo de vida
+
   useEffect(()=>{
-    console.log("Modificacion de tarea")
-    return () => {
+      console.log("Modificacion de tarea") ;
+      setLoading( false ) ;
+
+  return () => {
       console.log("Desaparece la lista de tareas")
     }
+
   }, [ task ]);
+
+
+  
 
   const changeCompleted = ( id ) =>{
     console.log("TODO: Cambiar estado de una tarea ")
