@@ -16,13 +16,13 @@ const LoginForm = () => {
     ] ;
 
     const [ data , setData ] = useState(initialData) ;
-    
+
     return (
         <div>
     
         </div>
-    );
-}
+    ) ;
+} ;
 
 
 

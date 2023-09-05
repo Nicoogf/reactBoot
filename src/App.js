@@ -1,10 +1,12 @@
 
 import './App.css' ;
+import './styles/task.scss'
 import TaskListComponent from './components/container/task_list' ;
 import Ejemplo1 from './hooks/Ejemplo1';
 import Ejemplo2 from './hooks/Ejemplo2';
 import Ejemplo3 from './hooks/Ejemplo3';
 import Ejemplo4 from './hooks/Ejemplo4';
+import GreetingStyled from "./components/pure/greetingStyled" ;
 
 function App() {
   return (
@@ -17,21 +19,31 @@ function App() {
        * **/}         
 
       {/*Ejemplo 1 - Hook */ }   
-        <Ejemplo1 />
 
-        <hr />
+      { /**
+       *  <Ejemplo1 />
 
-        <Ejemplo2 />
-      
-        <hr />
+              <hr />
 
-        <Ejemplo3 />
+              <Ejemplo2 />
+            
+              <hr />
 
-        <hr />
+              <Ejemplo3 />
 
-        <Ejemplo4 nombre = "Carlos Props">
-          <h4> Este es el contenido que se va a renderizar con el props.children </h4>
-        </ Ejemplo4>
+              <hr />
+
+              <Ejemplo4 nombre = "Carlos Props" >
+                <h4 className="task-name"> Este es el contenido que se va a renderizar con el props.children </h4>
+              </ Ejemplo4>
+
+              <TaskListComponent />
+      * 
+      * 
+      * 
+      */}
+
+      <GreetingStyled name="Juan"></GreetingStyled>    
         
     </div>
   );

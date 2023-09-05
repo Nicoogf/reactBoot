@@ -3,6 +3,8 @@ import { LEVELS } from '../../models/levels.enum' ;
 import { Task } from "../../models/task.class" ;
 import TaskComponent from '../pure/task';
 
+// Estilos
+import "../../styles/task.scss";
 
 const TaskListComponent = () => {
 
@@ -35,8 +37,6 @@ const TaskListComponent = () => {
     console.log("TODO: Cambiar estado de una tarea ")
   } ;
   
-
-
 
     return (
         <div>
