@@ -5,7 +5,7 @@ import React , { useState } from 'react' ;
 
 // ? Estilos para usuarios Logueados
 const loggedStyle = {
-    color: "blue"
+    color: "white"
 };
 
 // ? Estilos para usuarios No logieados
@@ -22,10 +22,16 @@ export default function GreetingStyled( props ) {
 
     const[ logged , setLogged ] = useState(false) ;
 
-  return (
-    <div style={ logged ? loggedStyle : unloggedStyle}>
+    const greetinUser = (<p> Hola , soy {props.name} y estoy logeado</p>) ;
+    const pleaseLoguin = (<p> Usuario desconocido, inicia Sesion </p>)  ;
 
-        <p>Hola , { props.name }</p>
+  return (
+
+    <div style= { logged ? loggedStyle : unloggedStyle}>
+
+                { logged ?  greetinUser  : pleaseLoguin  }
+
+       
         <button onClick={ ()=>{
             console.log("Buton Pulsado");
             setLogged( !logged );
