@@ -5,6 +5,7 @@ import TaskComponent from '../pure/task';
 
 // Estilos
 import "../../styles/task.scss";
+import TaskForm from '../pure/forms/TaskForm';
 
 
 const TaskListComponent = () => {
@@ -33,11 +34,15 @@ const TaskListComponent = () => {
   }, [ task ]);
 
 
-  
-
-  const changeCompleted = ( id ) =>{
-    console.log("TODO: Cambiar estado de una tarea ")
+  function completeTask( task ) {
+    console.log(` Complete this Task : ${ task } `)
+    const index = task.indexOf( task );
+    const tempTask = [...task];
+    tempTask[index].completed = !tempTask[index].completed ;
+      //Actualizacoin del etado del componente y actualizacion del iterador de tareas en orden de vista 
+      setTask( tempTask )
   } ;
+
   
 
 return (
@@ -72,26 +77,21 @@ return (
                     return(
                       <TaskComponent 
                           key={index} 
-                          task={task} >
+                          task={task} 
+                          complete={ completeTask }>
                             
                       </TaskComponent>
                     )
                   })}
-
-
                   
-                 </tbody>
-              </table>
-                  
-            </div>
-       </div>
-
-               
-
-            </div>
-
-            
+                  </tbody>
+                </table>                  
+              </div>
+            <TaskForm> </TaskForm>
+          </div>             
         </div>
+      </div>
+
     );
 };
 
