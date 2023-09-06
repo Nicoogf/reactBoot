@@ -6,7 +6,7 @@ import { Task } from '../../models/task.class';
 import '../../styles/task.scss' ;
 import { LEVELS } from '../../models/levels.enum';
 
-const TaskComponent = ({ task , complete , remove }) => {
+const TaskComponent = ({ task , complete , remove , add }) => {
 
   useEffect( ()=>{
      console.log("Tarea Creada") ;
@@ -93,7 +93,8 @@ const TaskComponent = ({ task , complete , remove }) => {
 TaskComponent.propTypes = {
   task : PropTypes.instanceOf( Task ).isRequired ,
   complete : PropTypes.func.isRequired,
-  remove : PropTypes.func.isRequired
+  remove : PropTypes.func.isRequired,
+  add : PropTypes.func.isRequired,
 };
 
 export default TaskComponent ; 

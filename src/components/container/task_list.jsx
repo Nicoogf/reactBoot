@@ -98,7 +98,8 @@ return (
                           key={index} 
                           task={task} 
                           complete={ completeTask }
-                          remove={ deleteTask }>
+                          remove={ deleteTask }
+                          >
                             
                       </TaskComponent>
                     )
@@ -109,7 +110,7 @@ return (
               </div>           
             </div>             
           </div>
-        <TaskForm> </TaskForm>
+        <TaskForm add={ addTask } > </TaskForm>
       </div>
 
     );
