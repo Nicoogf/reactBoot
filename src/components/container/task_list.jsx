@@ -16,7 +16,7 @@ const TaskListComponent = () => {
 
   // Estado del Componente
 
-  const [ task , setTask ] = useState([ defaultTask1 , defaultTask2 ,  defaultTask3 ]) ;
+  const [ tasks , setTask ] = useState([ defaultTask1 , defaultTask2 ,  defaultTask3 ]) ;
   const [ loading , setLoading ] = useState( true ) ;
 
 
@@ -31,18 +31,27 @@ const TaskListComponent = () => {
       console.log("Desaparece la lista de tareas")
     }
 
-  }, [ task ]);
+  }, [ tasks ]);
 
 
   function completeTask( task ) {
     console.log(` Complete this Task : ${ task } `)
-    const index = task.indexOf( task );
-    const tempTask = [...task];
-    tempTask[index].completed = !tempTask[index].completed ;
-      //Actualizacoin del etado del componente y actualizacion del iterador de tareas en orden de vista 
-      setTask( tempTask )
+    const index = tasks.indexOf( task );
+    const tempTasks = [...tasks];
+    tempTasks[index].completed = !tempTasks[index].completed ;
+
+      //Actualizacion del etado del componente 
+      // actualizacion del iterador y la tarea se muestra actualizada 
+      setTask( tempTasks )
   } ;
 
+  function deleteTask ( task) {
+    console.log(` Complete this Task : ${ task } `);
+    const index = tasks.indexOf( task ) ;
+    const tempTasks = [...tasks] ;
+    tempTasks.splice( index, 1);    
+    setTask( tempTasks )
+  }
   
 
 return (
@@ -73,12 +82,13 @@ return (
                  </thead> 
                  <tbody>
 
-                  { task.map( ( task , index )=>{
+                  { tasks.map( ( task , index )=>{
                     return(
                       <TaskComponent 
                           key={index} 
                           task={task} 
-                          complete={ completeTask }>
+                          complete={ completeTask }
+                          remove={ deleteTask }>
                             
                       </TaskComponent>
                     )
