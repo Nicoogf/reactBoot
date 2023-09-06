@@ -27,7 +27,7 @@ const TaskForm= ( { add }) => {
           <input placeholder="Ingresar Descripcion" ref={ descripcionRef } id='inputDescription' type='text' className='form-control form-control-lg' required />
           <label htmlFor="selectLevel" className='sr-only'> Prioridad </label>
 
-          <select name="" id="" ref={ levelRef } defaultValue={LEVELS.NORMAL} id='selectLevel'>
+          <select name="" ref={ levelRef } defaultValue={LEVELS.NORMAL} id='selectLevel'>
 
             <option value={LEVELS.NORMAL}> Normal </option>
             <option value={LEVELS.URGENT}> Urgente </option>
