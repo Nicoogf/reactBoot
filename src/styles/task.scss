@@ -5,3 +5,19 @@
 .blanco{
     color: white;
 }
+
+.centrar{
+    text-align: center;
+}
+
+
+
+.task-completed{
+    color: gray;
+    text-decoration: line-through;
+}
+
+.task-pending{
+    color: tomato;
+    font-weight: bold;   
+}

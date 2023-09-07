@@ -41,16 +41,16 @@ function App() {
               <TaskListComponent />
               <GreetingStyled name="Juan"></GreetingStyled>    
       * 
-      * <TaskListComponent></TaskListComponent>
+      * 
       * 
       */}
 
 
-      {/* */}
+      {/*     <OptionalRender></OptionalRender>  */}
       {/* Ejemplo de Renderizado Condicional */}
 
-      <OptionalRender></OptionalRender>
-      
+  
+      <TaskListComponent> </TaskListComponent>
     </div>
   );
 }

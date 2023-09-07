@@ -56,13 +56,56 @@ const TaskListComponent = () => {
   
   function addTask ( task) {
     console.log(` Complete this Task : ${ task } `);
-    const index = tasks.indexOf( task ) ;
     const tempTasks = [...tasks] ;
     tempTasks.push( task );    
     setTask( tempTasks )
   }
   
+  const Table = () =>{
+    return (
+        <table>
+            <thead>
+                <tr>
+                  <th scope='col'> Titulo </th>
+                  <th scope='col'> Descripcion </th>
+                  <th scope='col'> Prioridad </th>
+                  <th scope='col'> Accion </th>
+                 </tr>
+            </thead> 
+
+            <tbody>
+
+                  { tasks.map( ( task , index )=>{
+                    return(
+                      <TaskComponent 
+                          key={index} 
+                          task={task} 
+                          complete={ completeTask }
+                          remove={ deleteTask }
+                          >
+                            
+                      </TaskComponent>
+                    )
+                  })}                  
+             </tbody>
+         </table> 
+    )
+  }
   
+  let tasksTable ;
+
+  if(tasks.length > 0 ){
+    tasksTable = <Table /> 
+  }else{
+    tasksTable = (
+      <div>
+        <h3 className='centrar'> No hay Tareas </h3>
+        <h4 className='centrar'> Crea una nueva </h4>
+      </div>
+      ) 
+  } 
+
+ 
 
 return (
     <div>
@@ -80,33 +123,8 @@ return (
               data-mbd-perfect-scrollbar='true'  
               style={{ position: 'relative' , height : '400px' }}
             >
-                
-              <table>
-                <thead>
-                  <tr>
-                    <th scope='col'> Titulo </th>
-                    <th scope='col'> Descripcion </th>
-                    <th scope='col'> Prioridad </th>
-                    <th scope='col'> Accion </th>
-                  </tr>
-                 </thead> 
-                 <tbody>
-
-                  { tasks.map( ( task , index )=>{
-                    return(
-                      <TaskComponent 
-                          key={index} 
-                          task={task} 
-                          complete={ completeTask }
-                          remove={ deleteTask }
-                          >
-                            
-                      </TaskComponent>
-                    )
-                  })}
-                  
-                  </tbody>
-                </table>                  
+               { tasksTable }
+                               
               </div>           
             </div>             
           </div>
