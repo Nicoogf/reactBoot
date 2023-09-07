@@ -25,7 +25,10 @@ const TaskListComponent = () => {
 
   useEffect(()=>{
       console.log("Modificacion de tarea") ;
-      setLoading( false ) ;
+      setTimeout( ()=>{
+        setLoading( false )
+      }, 3000)
+    ;
 
   return () => {
       console.log("Desaparece la lista de tareas")
@@ -105,7 +108,11 @@ const TaskListComponent = () => {
       ) 
   } 
 
- 
+ const loadingStyle ={
+  color:'orange',
+  fontSize:'1rem',
+  fontWeigth:'bold'
+ }
 
 return (
     <div>
@@ -122,13 +129,16 @@ return (
               className='card-body' 
               data-mbd-perfect-scrollbar='true'  
               style={{ position: 'relative' , height : '400px' }}
+
             >
-               { tasksTable }
+
+              {/* Loading */ }
+               { loading ? (<p style={loadingStyle}>Loading ...</p>) : tasksTable }
                                
               </div>           
             </div>             
           </div>
-        <TaskForm add={ addTask } > </TaskForm>
+        <TaskForm add={ addTask } length={ tasks.length }> </TaskForm>
       </div>
 
     );
