@@ -7,6 +7,7 @@ import Ejemplo2 from './hooks/Ejemplo2';
 import Ejemplo3 from './hooks/Ejemplo3';
 import Ejemplo4 from './hooks/Ejemplo4';
 import GreetingStyled from "./components/pure/greetingStyled" ;
+import OptionalRender from './components/pure/optionalRender';
 
 function App() {
   return (
@@ -40,12 +41,16 @@ function App() {
               <TaskListComponent />
               <GreetingStyled name="Juan"></GreetingStyled>    
       * 
-      * 
+      * <TaskListComponent></TaskListComponent>
       * 
       */}
 
+
+      {/* */}
+      {/* Ejemplo de Renderizado Condicional */}
+
+      <OptionalRender></OptionalRender>
       
-      <TaskListComponent></TaskListComponent>
     </div>
   );
 }
