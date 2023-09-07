@@ -1,17 +1,39 @@
 import React , { useState } from 'react' ;
 
+
+let red = 0 ;
+let green = 200 ;
+let blue = 150 ;
+
+const loggedStyle = {
+    color: "white" ,
+    backgroundColor: `rgb(${red},${green},${blue})`,
+    fontWeight : 'bold'
+};
+
+// ? Estilos para usuarios No logieados
+const unloggedStyle = {
+    color: "white",
+    backgroundColor: "tomato",
+    fontWeight : 'bold'
+};
+
+
 //Loguin Logout Buttons
-const LogInButton = ( { loginAction } ) =>{
-    return(
-        <button onClick = { loginAction } > Desloguear </button>
+const LogInButton = ({ loginAction, propStyle }) => {
+    return (
+        <button style={propStyle} onClick={loginAction}> Loguear </button>
     )
 }
 
-const LogOutButton = ( logoutAction ) =>{
-    return(
-        <button onClick = { logoutAction } > Desloguear </button>
+const LogOutButton = ({ logoutAction, propStyle }) => {
+    return (
+        <button style={propStyle} onClick={logoutAction}> Desloguear </button>
     )
 }
+
+
+
 
 
 //( expresion true) && elemento => se renderiza la expresion
@@ -42,9 +64,9 @@ const OptionalRender = () => {
     let optionalButton ;
 
     if( acceso ){
-        optionalButton = <LogOutButton logoutAction= { logoutAction } />
+        optionalButton = <LogOutButton propStyle={ unloggedStyle } logoutAction= { logoutAction } />
     }else{
-        optionalButton = <LogInButton loginAction ={ loginAction } />
+        optionalButton = <LogInButton  propStyle={ loggedStyle } loginAction ={ loginAction } />
     }
 
 
@@ -60,24 +82,38 @@ const OptionalRender = () => {
   return (
     <div>
         {/* optional Button */}
-            { optionalButton }
+        { optionalButton }
 
-        {/* Mensajes sin leer */}    
-        { cantMensage === 0 && <p className='blanco'> No hay mensajes sin leer </p> }
+        {/* Mensajes sin leer 
+         { cantMensage === 0 && <p className='blanco'> No hay mensajes sin leer </p> }
         { cantMensage === 1 && <p className='blanco'> Nuevo Mensaje Recibido </p> }
         { cantMensage > 1 && <p className='blanco'> Tienes { cantMensage } sin leer ... </p> }
+        */}    
+       
 
 
         {/* Operador Ternario*/}
-    
-        { 
-        cantMensage > 0 && cantMensage === 1 ? 
-            <p className='blanco'> Nuevo Mensaje Recibido </p> 
-                : 
-            <p className='blanco'> No hay mensajes sin leer </p>
-        }
 
-        <button onClick={ addMessages }> { cantMensage === 0 ? 'Mandar el primer mensaje' : 'Mandar nuevamente'}  </button>
+        { acceso ? (
+            <div>
+             { 
+                cantMensage > 0  ? 
+                    <p className='blanco'> 
+                    Nuevo {cantMensage > 1 ? 's ' : ""} 
+                    Mensaje {cantMensage > 1 ? 's ' : ""} 
+                    Recibido {cantMensage > 1 ? 's ' : ""}  
+                    </p> 
+                        : 
+                    <p className='blanco'> No hay mensajes sin leer </p>
+                }
+      
+
+                <button onClick={ addMessages }> { cantMensage === 0 ? 'Mandar el primer mensaje' : 'Mandar nuevamente'}  </button>
+            </div>
+        ) 
+        :  null } 
+    
+     
     </div>
   )
 };
