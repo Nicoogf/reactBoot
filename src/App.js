@@ -8,6 +8,8 @@ import Ejemplo3 from './hooks/Ejemplo3';
 import Ejemplo4 from './hooks/Ejemplo4';
 import GreetingStyled from "./components/pure/greetingStyled" ;
 import OptionalRender from './components/pure/optionalRender';
+import LoginForm from './components/pure/forms/loginForm';
+import LoginFormik from './components/pure/forms/loginFormik';
 
 function App() {
   return (
@@ -49,8 +51,11 @@ function App() {
       {/*     <OptionalRender></OptionalRender>  */}
       {/* Ejemplo de Renderizado Condicional */}
 
-  
-      <TaskListComponent> </TaskListComponent>
+      {/* Ejemplo de Formik y Yup*/ }
+      <LoginFormik></LoginFormik>
+
+     {/*   <TaskListComponent> </TaskListComponent>*/}
+    
     </div>
   );
 }
