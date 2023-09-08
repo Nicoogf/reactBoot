@@ -10,6 +10,7 @@ import GreetingStyled from "./components/pure/greetingStyled" ;
 import OptionalRender from './components/pure/optionalRender';
 import LoginForm from './components/pure/forms/loginForm';
 import LoginFormik from './components/pure/forms/loginFormik';
+import RegisterFormik from './components/pure/forms/registerFormik';
 
 function App() {
   return (
@@ -51,10 +52,14 @@ function App() {
       {/*     <OptionalRender></OptionalRender>  */}
       {/* Ejemplo de Renderizado Condicional */}
 
-      {/* Ejemplo de Formik y Yup*/ }
-      <LoginFormik></LoginFormik>
+      {/* Ejemplo de Formik y Yup
+        <LoginFormik></LoginFormik>
+      */ }
+      
 
      {/*   <TaskListComponent> </TaskListComponent>*/}
+
+     <RegisterFormik className="blanco"></RegisterFormik>
     
     </div>
   );
