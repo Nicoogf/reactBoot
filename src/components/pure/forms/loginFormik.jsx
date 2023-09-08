@@ -47,12 +47,9 @@ const initialCredentials = {
                         errors.email && touched.email && (
                          /*   <div className='error'> 
                                 <p>{errors.email}</p>                               
-                            </div>) */
-                            <div className='error'>
-                                <ErrorMessage name="email" />       
-                            </div>
-                             )
-                        
+                            </div>) */                            
+                                <ErrorMessage name="email" component='div' />     
+                             )                        
                     }
 
                     {
