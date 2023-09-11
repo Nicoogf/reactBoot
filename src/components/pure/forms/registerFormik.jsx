@@ -36,7 +36,7 @@ const RegisterFormik = () => {
         confirm : Yup.string()
                    .when( 'password' , {
                     is: value =>( value && value.length > 0 ? true : false),
-                    then: Yup.string().oneOf(
+                    then: ()=> Yup.string().oneOf(
                        [Yup.ref('password')], 'la contraseña no coincide'
           )
        }).required(' Necesitas confirmar la contraseña'),

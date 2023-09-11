@@ -9,11 +9,13 @@ import "bootstrap-icons/font/bootstrap-icons.css" ;
 import './index.css';
 
 import App from './App';
+import AppRouting from './AppRoutingUno';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    { /* <App /> */ } 
+    <AppRouting></AppRouting>
   </React.StrictMode>
 );
 
